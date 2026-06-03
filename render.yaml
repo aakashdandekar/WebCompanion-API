@@ -1,0 +1,30 @@
+services:
+  - type: web
+    name: website-chatting-automation-tool-api
+    runtime: python
+    region: oregon
+    plan: free
+    buildCommand: |
+      pip install -r requirements.txt && playwright install --with-deps chromium
+    startCommand: gunicorn src.app:app --workers 4 --worker-class uvicorn.workers.UvicornWorker --bind 0.0.0.0:$PORT
+    envVars:
+      - key: PYTHON_VERSION
+        value: "3.11"
+      - key: SECRET_KEY
+        sync: false
+      - key: DATABASE_URI
+        sync: false
+      - key: DATABASE_NAME
+        sync: false
+      - key: REDIS_HOST
+        sync: false
+      - key: REDIS_PORT
+        sync: false
+      - key: REDIS_USERNAME
+        sync: false
+      - key: REDIS_PASSWORD
+        sync: false
+      - key: OPENROUTER_API
+        sync: false
+      - key: ALLOWED_ORIGINS
+        sync: false

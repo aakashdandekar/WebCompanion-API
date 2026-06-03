@@ -1,0 +1,17 @@
+uvicorn
+fastapi
+motor
+pymongo
+python-dotenv
+beautifulsoup4
+selenium
+playwright
+passlib[bcrypt]
+bcrypt
+python-jose[cryptography]
+requests
+langchain
+langchain_core
+langchain_community
+openrouter
+redis[hiredis]
